@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FollowWaypoints : MonoBehaviour
+public class TranslateToWaypoints : MonoBehaviour
 {
     public Transform[] waypoints;
     public float moveSpeed;
