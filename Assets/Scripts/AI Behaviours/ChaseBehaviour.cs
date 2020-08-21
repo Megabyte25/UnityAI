@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class ChaseBehaviour : MonoBehaviour
@@ -8,15 +6,12 @@ public class ChaseBehaviour : MonoBehaviour
     public delegate void PlayerLostEvent();
     public event PlayerLostEvent OnPlayerLostEvent;
 
-    public float viewDistance;
-    public float viewAngle;
     public float moveSpeed = 5f;
     public float angularSpeed = 360f;
 
     public GameObject alertLights; // Assigned in Editor
     private GameObject m_Player;
     private NavMeshAgent m_Agent;
-    private bool m_pendingReset = false;
 
     private void Awake()
     {
@@ -26,7 +21,7 @@ public class ChaseBehaviour : MonoBehaviour
 
     private void OnEnable()
     {
-        m_pendingReset = true;
+        SetAgentSpeed();
         alertLights.SetActive(true);
     }
 
@@ -37,13 +32,12 @@ public class ChaseBehaviour : MonoBehaviour
 
     void Update()
     {
-        if (m_pendingReset)
-        {
-            m_pendingReset = false;
-            m_Agent.speed = moveSpeed;
-            m_Agent.angularSpeed = angularSpeed;
-        }
-
         m_Agent.SetDestination(m_Player.transform.position);
+    }
+
+    void SetAgentSpeed()
+    {
+        m_Agent.speed = moveSpeed;
+        m_Agent.angularSpeed = angularSpeed;
     }
 }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1674834875773560392}
   - component: {fileID: 8250361847587569161}
   - component: {fileID: 5245055979507835449}
+  - component: {fileID: 8177337407632629198}
   m_Layer: 0
   m_Name: Patroller
   m_TagString: Patroller
@@ -134,8 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b308bb07ae73a44a9221b93781b533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewDistance: 10
-  viewAngle: 45
   moveSpeed: 2
   angularSpeed: 270
   m_CurrentWaypoint: {x: 0, y: 0, z: 0}
@@ -151,8 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9063153fa951c2544a2e33ec3e9deb00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewDistance: 10
-  viewAngle: 45
   moveSpeed: 4
   angularSpeed: 360
   alertLights: {fileID: 1674834876285364670}
@@ -168,6 +165,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca638364cf400a4eaa8230c5cee9dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8177337407632629198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674834875773560371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2897a0ca51bf2443958d54bd4628d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewDistance: 10
+  viewAngle: 45
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 768
 --- !u!1 &1674834876285364670
 GameObject:
   m_ObjectHideFlags: 0
