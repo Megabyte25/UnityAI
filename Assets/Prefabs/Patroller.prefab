@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   angularSpeed: 360
+  timeUntilPlayerLost: 5
   alertLights: {fileID: 1674834876285364670}
 --- !u!114 &5245055979507835449
 MonoBehaviour:

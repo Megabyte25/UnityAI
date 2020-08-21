@@ -20,11 +20,13 @@ public class PatrollerController : MonoBehaviour
     private void OnEnable()
     {
         patrolBehaviour.OnPlayerFoundEvent += PlayerFound;
+        chaseBehaviour.OnPlayerLostEvent += PlayerLost;
     }
 
     private void OnDisable()
     {
         patrolBehaviour.OnPlayerFoundEvent -= PlayerFound;
+        chaseBehaviour.OnPlayerLostEvent -= PlayerLost;
     }
 
     public void PlayerFound()
@@ -38,9 +40,26 @@ public class PatrollerController : MonoBehaviour
         }
     }
 
+    public void PlayerLost()
+    {
+        // Signal all patrollers
+        GameObject[] allPatrollers = GameObject.FindGameObjectsWithTag(Constants.PATROLLER_TAG);
+        foreach (GameObject obj in allPatrollers)
+        {
+            PatrollerController pc = obj.GetComponent<PatrollerController>();
+            pc.SwitchToPatrolMode();
+        }
+    }
+
     public void SwitchToChaseMode()
     {
         patrolBehaviour.enabled = false;
         chaseBehaviour.enabled = true;
+    }
+
+    public void SwitchToPatrolMode()
+    {
+        patrolBehaviour.enabled = true;
+        chaseBehaviour.enabled = false;
     }
 }
